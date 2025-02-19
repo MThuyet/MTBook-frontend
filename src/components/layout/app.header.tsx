@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import { FaReact } from 'react-icons/fa'
 import { FiShoppingCart } from 'react-icons/fi';
 import { VscSearchFuzzy } from 'react-icons/vsc';
 import { Divider, Badge, Drawer, Avatar, Popover } from 'antd';
@@ -11,6 +10,7 @@ import { useCurrentApp } from 'components/context/app.context';
 import { logoutAPI } from '@/services/api';
 import ManageAccount from '../client/account';
 import { BrowserView, MobileView } from 'react-device-detect';
+import logo from '@/assets/MTBook.png'
 
 interface IProps {
 	searchTerm: string;
@@ -115,7 +115,7 @@ const AppHeader = (props: IProps) => {
 						<div className='page-header__logo'>
 							<span className='logo'>
 								<span onClick={() => navigate('/')}>
-									<img src="/src/assets/MTBook.png" alt="" className='icon-logo' />
+									<img src={logo} alt="" className='icon-logo' />
 									<span>MTBook</span>
 								</span>
 							</span>
