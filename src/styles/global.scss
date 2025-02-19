@@ -1,0 +1,129 @@
+* {
+	margin: 0;
+}
+
+.popover-carts {
+	.pop-cart-body {
+		.pop-cart-content {
+			display: flex;
+			flex-direction: column;
+			gap: 15px;
+
+			.book {
+				display: flex;
+				justify-content: space-between;
+				align-items: center;
+				gap: 5px;
+				max-width: 500px;
+
+
+				img {
+					width: 50px;
+					height: 50px;
+				}
+
+				.img-name {
+					flex: 1;
+					display: flex;
+					align-items: center;
+					gap: 5px;
+					overflow: hidden;
+					text-overflow: ellipsis;
+				}
+
+				.name {
+					overflow: hidden;
+					text-overflow: ellipsis;
+					font-size: 14px;
+				}
+
+				.price {
+					color: #007BFF;
+				}
+			}
+		}
+
+		.pop-cart-footer {
+			margin-top: 10px;
+			display: flex;
+			justify-content: end;
+
+			button {
+				background-color: #007BFF;
+				color: #fff;
+				border: 1px solid #007BFF;
+				box-shadow: 0 1px 1px 0 rgba(0, 0, 0, .03);
+				cursor: pointer;
+				border-radius: 3px;
+				font-size: 16px;
+				height: 40px;
+				padding: 0 20px;
+			}
+		}
+	}
+}
+
+@media (min-width: 767px) {
+	::-webkit-scrollbar {
+		width: 8px;
+	}
+
+	::-webkit-scrollbar-button {
+		width: 8px;
+		height: 5px;
+	}
+
+	::-webkit-scrollbar-track {
+		background: rgb(255, 255, 255);
+		border: thin solid rgb(238, 238, 238);
+		box-shadow: 0px 0px 3px #dfdfdf inset;
+		border-radius: 10px;
+	}
+
+	::-webkit-scrollbar-thumb {
+		background: #ccc;
+		border: thin solid #ccc;
+		border-radius: 10px;
+	}
+
+	::-webkit-scrollbar-thumb:hover {
+		background: #7d7d7d;
+	}
+}
+
+.order-detail-container {
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
+
+	.item {
+		display: flex;
+		justify-content: start;
+		align-items: center;
+		gap: 10px;
+
+		.total-price {
+			font-size: 20px;
+			font-weight: 500;
+		}
+
+		.label {
+			min-width: 100px;
+			font-weight: 600;
+		}
+	}
+
+	.info-book {
+		.content {
+			font-weight: 500;
+		}
+	}
+}
+
+@media screen and (max-width: 480px) {
+	.order-detail-container {}
+}
+
+@media screen and (max-width: 1440px) and (min-width: 768px) {
+	.order-detail-container {}
+}
