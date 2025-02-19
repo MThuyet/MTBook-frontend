@@ -4,11 +4,11 @@ import { useRef, useState } from 'react';
 import type { ActionType, ProColumns } from '@ant-design/pro-components';
 import dayjs from 'dayjs';
 import { FORMATE_DATE_DEFAULT, dateRangeValidate } from '@/services/helper';
-import * as ReactCSV from "react-csv";
+import { CSVLink } from "react-csv";
 import { ExportOutlined } from "@ant-design/icons";
 import { getOrderWithPaginateAPI } from '@/services/api';
 
-const CSVLink = ReactCSV.CSVLink;
+
 
 type TSearch = {
 	name: string;
