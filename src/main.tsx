@@ -1,14 +1,11 @@
-import { StrictMode } from 'react'
-import { createRoot } from 'react-dom/client'
+import { StrictMode } from 'react';
+import { createRoot } from 'react-dom/client';
 import Layout from '@/layout';
-import {
-	createBrowserRouter,
-	RouterProvider,
-} from "react-router-dom";
+import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import BookPage from 'pages/client/book';
 import LoginPage from 'pages/client/auth/login';
 import RegisterPage from 'pages/client/auth/register';
-import 'styles/global.scss'
+import 'styles/global.scss';
 import HomePage from 'pages/client/home';
 import { App, ConfigProvider, message } from 'antd';
 import { AppProvider } from 'components/context/app.context';
@@ -27,114 +24,107 @@ import { GoogleOAuthProvider } from '@react-oauth/google';
 
 // config message
 message.config({
-	maxCount: 2
-})
+  maxCount: 2,
+});
 
 const router = createBrowserRouter([
-	{
-		path: "/",
-		element: <Layout />,
-		children: [
-			{
-				index: true,
-				element: <HomePage />
-			},
-			{
-				path: "/book/:id",
-				element: <BookPage />,
-			},
-			{
-				path: "/order",
-				element: (
-					<ProtectedRoute>
-						<OrderPage />
-					</ProtectedRoute>
-				),
-			},
-			{
-				path: "vnpay/return-url",
-				element: (
-					<ProtectedRoute>
-						<ReturnURLPage />
-					</ProtectedRoute>
-				)
-			},
-			{
-				path: "/history",
-				element: (
-					<ProtectedRoute>
-						<HistoryPage />
-					</ProtectedRoute>
-				),
-			},
-		]
-	},
-	{
-		path: "admin",
-		element: <LayoutAdmin />,
-		children: [
-			{
-				index: true,
-				element: (
-					<ProtectedRoute>
-						<DashBoardPage />
-					</ProtectedRoute>
-				)
-			},
-			{
-				path: "book",
-				element: (
-					<ProtectedRoute>
-						<ManageBookPage />
-					</ProtectedRoute>
-				)
-			},
-			{
-				path: "order",
-				element: (
-					<ProtectedRoute>
-						<ManageOrderPage />
-					</ProtectedRoute>
-				)
-			},
-			{
-				path: "user",
-				element: (
-					<ProtectedRoute>
-						<ManageUserPage />
-					</ProtectedRoute>
-				),
-			},
-			{
-				path: "/admin",
-				element: (
-					<ProtectedRoute>
-						<div>admin page</div>
-					</ProtectedRoute>
-				),
-			},
-
-		]
-	},
-	{
-		path: "/login",
-		element: <LoginPage />,
-	},
-	{
-		path: "/register",
-		element: <RegisterPage />,
-	},
-
+  {
+    path: '/',
+    element: <Layout />,
+    children: [
+      {
+        index: true,
+        element: <HomePage />,
+      },
+      {
+        path: '/book/:id',
+        element: <BookPage />,
+      },
+      {
+        path: '/order',
+        element: (
+          <ProtectedRoute>
+            <OrderPage />
+          </ProtectedRoute>
+        ),
+      },
+      {
+        path: 'vnpay/return-url',
+        element: (
+          <ProtectedRoute>
+            <ReturnURLPage />
+          </ProtectedRoute>
+        ),
+      },
+      {
+        path: '/history',
+        element: (
+          <ProtectedRoute>
+            <HistoryPage />
+          </ProtectedRoute>
+        ),
+      },
+    ],
+  },
+  {
+    path: 'admin',
+    element: <LayoutAdmin />,
+    children: [
+      {
+        index: true,
+        element: (
+          <ProtectedRoute>
+            <DashBoardPage />
+          </ProtectedRoute>
+        ),
+      },
+      {
+        path: 'book',
+        element: (
+          <ProtectedRoute>
+            <ManageBookPage />
+          </ProtectedRoute>
+        ),
+      },
+      {
+        path: 'order',
+        element: (
+          <ProtectedRoute>
+            <ManageOrderPage />
+          </ProtectedRoute>
+        ),
+      },
+      {
+        path: 'user',
+        element: (
+          <ProtectedRoute>
+            <ManageUserPage />
+          </ProtectedRoute>
+        ),
+      },
+    ],
+  },
+  {
+    path: '/login',
+    element: <LoginPage />,
+  },
+  {
+    path: '/register',
+    element: <RegisterPage />,
+  },
 ]);
 
 createRoot(document.getElementById('root')!).render(
-	<StrictMode>
-		<App>
-			<AppProvider>
-				<GoogleOAuthProvider clientId={import.meta.env.VITE_GOOGLE_CLIENT_ID}>
-					<ConfigProvider locale={enUS}> <RouterProvider router={router} /></ConfigProvider>
-				</GoogleOAuthProvider>
-			</AppProvider>
-		</App>
-	</StrictMode>,
-)
+  <StrictMode>
+    <App>
+      <AppProvider>
+        <GoogleOAuthProvider clientId={import.meta.env.VITE_GOOGLE_CLIENT_ID}>
+          <ConfigProvider locale={enUS}>
+            {' '}
+            <RouterProvider router={router} />
+          </ConfigProvider>
+        </GoogleOAuthProvider>
+      </AppProvider>
+    </App>
+  </StrictMode>,
+);
